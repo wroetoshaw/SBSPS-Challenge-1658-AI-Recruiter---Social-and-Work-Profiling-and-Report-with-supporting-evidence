@@ -1,0 +1,90 @@
+[
+  {
+    "displayName": "Dark",
+    "name": "dark",
+    "selected": true,
+    "editable": false,
+    "deletable": false,
+    "values": {
+      "--theme-primary-color": {
+        "displayName": "Primary Color",
+        "category": null,
+        "value": "#494a68"
+      },
+      "--theme-secondary-color": {
+        "displayName": "Secondary Color",
+        "category": null,
+        "value": "#ffffff"
+      },
+      "--theme-text-primary-color": {
+        "displayName": "Primary Text Color",
+        "category": null,
+        "value": "#ffffff"
+      },
+      "--theme-text-secondary-color": {
+        "displayName": "Secondary Text Color",
+        "category": null,
+        "value": "#e6e6e6"
+      },
+      "--theme-primary-shade-two": {
+        "displayName": "Primary Shade Two",
+        "category": null,
+        "value": "#20202d"
+      },
+      "--theme-primary-shade-one": {
+        "displayName": "Primary Shade One",
+        "category": null,
+        "value": "#35354b"
+      },
+      "--theme-shadow-color": {
+        "displayName": "Shadow Color",
+        "category": null,
+        "value": "#3e3f52"
+      }
+    }
+  },
+  {
+    "displayName": "Light",
+    "name": "light",
+    "editable": false,
+    "deletable": false,
+    "selected": false,
+    "values": {
+      "--theme-primary-color": {
+        "displayName": "Primary Color",
+        "category": null,
+        "value": "#ffffff"
+      },
+      "--theme-secondary-color": {
+        "displayName": "Secondary Color",
+        "category": null,
+        "value": "#3e3f52"
+      },
+      "--theme-text-primary-color": {
+        "displayName": "Primary Text Color",
+        "category": null,
+        "value": "#494a68"
+      },
+      "--theme-text-secondary-color": {
+        "displayName": "Secondary Text Color",
+        "category": null,
+        "value": "#2f3044"
+      },
+      "--theme-primary-shade-two": {
+        "displayName": "Primary Shade Two",
+        "category": null,
+        "value": "#cccccc"
+      },
+      "--theme-primary-shade-one": {
+        "displayName": "Primary Shade One",
+        "category": null,
+        "value": "#e6e6e6"
+      },
+      "--theme-shadow-color": {
+        "displayName": "Shadow Color",
+        "category": null,
+        "value": "#d9d9d9"
+      }
+    }
+  }
+]

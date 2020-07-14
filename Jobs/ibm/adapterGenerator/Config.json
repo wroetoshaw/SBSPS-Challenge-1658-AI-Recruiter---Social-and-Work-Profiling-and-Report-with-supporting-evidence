@@ -1,0 +1,7 @@
+{
+ "artifactId": "JavaReSTServiceAdapter",	
+  "additionalProperties": {
+    "adapterApplicationClassname": "AdapterApplication"
+  },
+  "artifactVersion": "1.0.0"
+}

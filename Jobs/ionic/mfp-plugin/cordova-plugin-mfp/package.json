@@ -1,0 +1,90 @@
+{
+    "name": "cordova-plugin-mfp",
+    "version": "8.0.2020051104",
+    "description": "IBM MobileFirst Platform Foundation Cordova Plugin",
+    "cordova": {
+        "id": "cordova-plugin-mfp",
+        "platforms": [
+            "android",
+            "ios",
+            "windows",
+            "browser"
+        ]
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://git.ng.bluemix.net/ibmmfpf/cordova-plugin-mfp/tree/master"
+    },
+    "dependencies": {
+        "archiver": "0.20.0",
+        "crc": "^3.4.0",
+        "elementtree": "0.1.6",
+        "ibm-strings": "~0.1.0",
+        "mfp-config-xml": "0.0.3",
+        "nopt": "^3.0.6",
+        "npmlog": "0.0.6",
+        "plist": "1.1.0",
+        "q": "0.9.7",
+        "rimraf": "2.4.4",
+        "shelljs": "0.3.0",
+        "xcode": "0.8.7",
+        "express": "^4.14.0",
+        "request": "^2.73.0",
+        "cordova-serve": "^1.0.0",
+        "promiz": "1.0.5",
+        "jssha": "2.2.0",
+        "sjcl": "1.0.3"
+    },
+    "bundleDependencies": [
+        "crc",
+        "ibm-strings",
+        "mfp-config-xml",
+        "elementtree",
+        "nopt",
+        "plist",
+        "shelljs",
+        "npmlog",
+        "archiver",
+        "q",
+        "rimraf",
+        "xcode",
+        "express",
+        "request",
+        "cordova-serve",
+        "jssha",
+        "promiz",
+        "sjcl"
+    ],
+    "keywords": [
+        "cordova",
+        "ibm",
+        "worklight",
+        "mobilefirst",
+        "mfp",
+        "ecosystem:cordova",
+        "cordova-android",
+        "cordova-ios",
+        "cordova-windows",
+        "cordova-browser"
+    ],
+    "engines": [
+        {
+            "name": "cordova-android",
+            "version": ">=6.1.2 <7"
+        },
+        {
+            "name": "cordova-ios",
+            "version": ">=4.1.1 <5"
+        },
+        {
+            "name": "cordova-windows",
+            "version": ">=4.3.2 <6"
+        },
+        {
+            "name": "cordova-plugman",
+            "version": ">=6.1.1 <7"
+        }
+    ],
+    "author": "IBM",
+    "license": "SEE LICENSE IN LICENSE.TXT"
+}

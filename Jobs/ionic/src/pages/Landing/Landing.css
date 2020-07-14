@@ -1,0 +1,230 @@
+  /* write your css here */
+
+
+/* iphone 4 & 4s */
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {}
+
+
+/* iphone 5, 5s,5c */
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) {}
+
+
+/* iphone 6s, 6, 7  */
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) {}
+
+
+/* iphone 6+, 7+, 8+ */
+
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) {}
+
+
+/* iphone x */
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) {}
+
+
+/* Android -Galaxy s3*/
+
+@media only screen and (min-device-width: 400px) and (max-device-width: 750px) {}
+
+#background{
+  background-image: url("build/assets/imgs/how-applybg.png");
+  margin-top: -20px;
+  margin-bottom: 150px;
+}
+
+.section-tittle span {
+    color: #fb246a;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+    display: block;
+}
+
+.section-tittle h2 {
+    color: #28395a;
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.process-cap{
+  text-align: center;
+}
+
+.fill-color{
+  fill: white;
+  height: 100px;
+  width: 100px;
+  margin-left: 90px;
+  margin-bottom: 50px;
+}
+
+.section-tittle.white-text h2 {
+    color: #fff;
+}
+
+.apply-process-area .single-process {
+    padding: 44px 28px;
+    background: #26317f;
+    font-family: "Muli",sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    height: 340px;
+    margin-bottom: 420px;
+    margin-top: 100px;
+
+}
+
+.apply-process-area .single-process .process-cap p {
+    color: #a5aaca;
+}
+
+.apply-process-area .single-process .process-cap h5 {
+    font-weight: 700;
+    font-size: 24px;
+    color: #fff;
+    line-height: 1.4;
+    margin-bottom: 20px;
+}
+
+/* .flaticon-search:before {
+    content: "\f108";
+} */
+
+.text-adj{
+    width: 600px;
+     white-space: nowrap;
+     overflow: hidden;
+     text-overflow: ellipsis;
+}
+
+.img-job {
+  height: 75px;
+  margin-top: 7%;
+}
+
+.featured-title {
+  margin-bottom: 0px;
+}
+
+.divheader{
+    padding: 15px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.single-job-items {
+  padding: 36px 30px;
+  display: flex;
+  justify-content: space-between;
+  width: 1000px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  -webkit-transition: .4s;
+  -moz-transition: .4s;
+  -o-transition: .4s;
+  transition: .4s
+}
+
+.items-link-a{
+    border: 1px solid;
+    padding: 10px 30px;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .single-job-items {
+    padding: 20px 7px
+  }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+  .single-job-items {
+    padding: 20px 25px
+  }
+}
+
+.single-job-items .company-img img {
+  overflow: hidden;
+  float: left;
+  margin-right: 32px;
+  z-index: 999
+}
+
+@media (max-width: 767px) {
+  .single-job-items .job-tittle {
+    padding-top: 25px
+  }
+}
+
+.single-job-items .job-tittle a h4 {
+  color: #28395a;
+  font-size: 24px;
+  -webkit-transition: .4s;
+  -moz-transition: .4s;
+  -o-transition: .4s;
+  transition: .4s
+}
+
+.single-job-items .job-tittle a h4:hover {
+  color: #8b92dd
+}
+
+.single-job-items .job-tittle ul li {
+  display: inline-block;
+  margin-right: 48px;
+  font-size: 15px;
+  color: #808080;
+  line-height: 1.8
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .single-job-items .job-tittle ul li {
+    margin-right: 18px
+  }
+}
+
+@media (max-width: 767px) {
+  .single-job-items .job-tittle ul li {
+    margin-right: 0px;
+    margin-bottom: 7px
+  }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+  .single-job-items .job-tittle ul li {
+    margin-right: 8px
+  }
+}
+
+.single-job-items .job-tittle ul li:last-child {
+  margin-right: 0px
+}
+
+.single-job-items .job-tittle ul li i {
+  font-size: 14px;
+  color: #bbbbbb;
+  margin-right: 10px
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .single-job-items .job-tittle2 {
+    padding-top: 25px
+  }
+}
+
+.single-job-items:hover {
+  box-shadow: 0px 22px 57px 0px rgba(34, 41, 72, 0.05)
+}
+
+.single-job-items .job-items {
+  display: flex;
+  flex-wrap: wrap
+}

@@ -1,0 +1,176 @@
+{{>copyRight}}
+
+package {{package}};
+
+import {{modelImportPackage}}.*;
+import {{package}}.{{classname}}Service;
+
+import io.swagger.annotations.ApiParam;
+//import io.swagger.jaxrs.*;
+import com.ibm.mfp.adapters.sample.StringUtil;
+import com.ibm.mfp.adapters.sample.model.*;
+import java.lang.*;
+
+{{#imports}}import {{import}};
+{{/imports}}
+
+import {{package}}.NotFoundException;
+
+import java.util.*;
+import java.io.InputStream;
+import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
+import org.glassfish.jersey.media.multipart.FormDataParam;
+import com.ibm.mfp.adapter.api.OAuthSecurity;
+import com.ibm.mfp.adapter.api.ConfigurationAPI;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
+
+import javax.ws.rs.core.SecurityContext;
+import javax.ws.rs.*;
+{{#useBeanValidation}}
+import javax.validation.constraints.*;
+{{/useBeanValidation}}
+
+import com.squareup.okhttp.OkHttpClient;
+import com.squareup.okhttp.ConnectionSpec;
+
+@Path("/{{{baseName}}}")
+@Produces("application/json")
+@Consumes("application/json")
+{{#hasConsumes}}@Consumes({ {{#consumes}}"{{{mediaType}}}"{{#hasMore}}, {{/hasMore}}{{/consumes}} }){{/hasConsumes}}
+{{#hasProduces}}@Produces({ {{#produces}}"{{{mediaType}}}"{{#hasMore}}, {{/hasMore}}{{/produces}} }){{/hasProduces}}
+@io.swagger.annotations.Api(description = "the {{{baseName}}} API")
+{{>generatedAnnotation}}
+{{#operations}}
+public class {{classname}}  {
+	@Context
+        ConfigurationAPI configurationApi;
+
+{{#operation}}
+    @{{httpMethod}}
+    {{#authMethods}}{{#isOAuth}}
+    @OAuthSecurity(scope =  "{{#scopes}}{{scope}} {{#hasMore}}{{/hasMore}}{{/scopes}}")
+    {{/isOAuth}}{{/authMethods}}
+    {{#subresourceOperation}}@Path("{{{path}}}"){{/subresourceOperation}}
+    {{#hasConsumes}}@Consumes({ {{#consumes}}"{{{mediaType}}}"{{#hasMore}}, {{/hasMore}}{{/consumes}} }){{/hasConsumes}}
+    {{#hasProduces}}@Produces({ {{#produces}}"{{{mediaType}}}"{{#hasMore}}, {{/hasMore}}{{/produces}} }){{/hasProduces}}
+    @io.swagger.annotations.ApiOperation(value = "{{{summary}}}", notes = "{{{notes}}}", response = {{{returnType}}}.class{{#returnContainer}}, responseContainer = "{{{returnContainer}}}"{{/returnContainer}}
+    {{#hasAuthMethods}},authorizations = {
+    {{#authMethods}}@io.swagger.annotations.Authorization(value = "{{name}}"{{#isOAuth}}, scopes = {
+    {{#scopes}}@io.swagger.annotations.AuthorizationScope(scope = "{{scope}}", description = "{{description}}"){{#hasMore}},
+    {{/hasMore}}{{/scopes}}
+    }{{/isOAuth}}){{#hasMore}},
+    {{/hasMore}}{{/authMethods}}
+    }{{/hasAuthMethods}},tags={ {{#vendorExtensions.x-tags}}"{{tag}}",{{/vendorExtensions.x-tags}} })
+    @io.swagger.annotations.ApiResponses(value = { {{#responses}}
+    @io.swagger.annotations.ApiResponse(code = {{{code}}}, message = "{{{message}}}", response = {{{returnType}}}.class{{#returnContainer}}, responseContainer = "{{{returnContainer}}}"{{/returnContainer}}){{#hasMore}},
+    {{/hasMore}}{{/responses}} })
+    public Response {{nickname}}({{#allParams}}{{>queryParams}}{{>pathParams}}{{>headerParams}}{{>bodyParams}}{{>formParams}},{{/allParams}}@Context SecurityContext securityContext)
+    throws NotFoundException {
+        
+    com.ibm.mfp.adapters.sample.ApiClient apiAuthInstance = new com.ibm.mfp.adapters.sample.ApiClient();
+        
+	OkHttpClient client =  apiAuthInstance.getHttpClient();
+	
+	{{#isOnlyHttpScheme}}
+	client.setConnectionSpecs(Arrays.asList(ConnectionSpec.MODERN_TLS,ConnectionSpec.CLEARTEXT));
+	{{/isOnlyHttpScheme}}
+	{{^isOnlyHttpScheme}}
+	client.setConnectionSpecs(Arrays.asList(new ConnectionSpec[]{new ConnectionSpec.Builder(ConnectionSpec.MODERN_TLS).allEnabledCipherSuites().build()}));
+	{{/isOnlyHttpScheme}}
+
+        com.ibm.mfp.adapters.sample.api.{{#vendorExtensions.x-tags}}{{tag}}{{#hasMore}}{{/hasMore}}{{/vendorExtensions.x-tags}}ClientApi apiInstance = new com.ibm.mfp.adapters.sample.api.{{#vendorExtensions.x-tags}}{{tag}}{{#hasMore}}{{/hasMore}}{{/vendorExtensions.x-tags}}ClientApi(apiAuthInstance);
+        String retval = "NA";
+        
+         	{{#vendorExtensions.x-java-is-response-void}}
+
+			{{#isBothAuthSet}}
+				apiAuthInstance.setUsername(configurationApi.getPropertyValue("username"));
+         		apiAuthInstance.setPassword(configurationApi.getPropertyValue("password"));
+         		apiAuthInstance.setBasePath(configurationApi.getPropertyValue("url"));
+			{{/isBothAuthSet}}
+			
+			{{^isBothAuthSet}}
+         	{{#authMethods}}{{#isApiKey}}
+         		apiAuthInstance.setApiKey(configurationApi.getPropertyValue("apikey"));
+         		apiAuthInstance.setBasePath(configurationApi.getPropertyValue("url"));
+         	{{/isApiKey}}{{/authMethods}}
+         	
+         	{{#authMethods}}{{#isBasic}}
+         		apiAuthInstance.setUsername(configurationApi.getPropertyValue("username"));
+         		apiAuthInstance.setPassword(configurationApi.getPropertyValue("password"));
+         		apiAuthInstance.setBasePath(configurationApi.getPropertyValue("url"));
+			{{/isBasic}}{{/authMethods}}
+			{{/isBothAuthSet}}
+         	
+         	try {
+           		 	System.out.println("Calling microservice.");
+         			apiInstance.{{nickname}}({{#allParams}}{{#isFile}}{{paramName}}{{/isFile}}{{^isFile}}{{paramName}}{{/isFile}}{{#hasMore}},{{/hasMore}}{{/allParams}});
+        		}
+         	catch (com.ibm.mfp.adapters.sample.ApiException e) {
+            		System.err.println("Exception when calling {{classname}}#{{nickname}}");
+           			 e.printStackTrace();
+            		return Response.status(e.getCode()).entity(e.getResponseBody()).build();
+           }
+          	catch (java.lang.Exception e) {
+           	 		System.err.println("Exception when calling {{classname}}#{{nickname}}");
+            		e.printStackTrace();
+	    			return Response.status(Status.BAD_REQUEST).entity(e.getMessage()).build();
+        	}
+         return Response.ok().entity("").build();
+         	{{/vendorExtensions.x-java-is-response-void}}
+         	
+         	{{^vendorExtensions.x-java-is-response-void}}
+        	{{#returnContainer}}
+        		java.util.List<{{{returnType}}}> respResult = null;
+        	{{/returnContainer}}
+        	{{^returnContainer}}
+        		{{{returnType}}} respResult = null;
+        	{{/returnContainer}}
+        	{{#isBothAuthSet}}
+				apiAuthInstance.setUsername(configurationApi.getPropertyValue("username"));
+         		apiAuthInstance.setPassword(configurationApi.getPropertyValue("password"));
+         		apiAuthInstance.setBasePath(configurationApi.getPropertyValue("url"));
+			{{/isBothAuthSet}}
+			
+			{{^isBothAuthSet}}
+         	{{#authMethods}}{{#isApiKey}}
+         		apiAuthInstance.setApiKey(configurationApi.getPropertyValue("apikey"));
+         		apiAuthInstance.setBasePath(configurationApi.getPropertyValue("url"));
+         	{{/isApiKey}}{{/authMethods}}
+         	
+         	{{#authMethods}}{{#isBasic}}
+         		apiAuthInstance.setUsername(configurationApi.getPropertyValue("username"));
+         		apiAuthInstance.setPassword(configurationApi.getPropertyValue("password"));
+         		apiAuthInstance.setBasePath(configurationApi.getPropertyValue("url"));
+			{{/isBasic}}{{/authMethods}}
+			{{/isBothAuthSet}}
+         	
+          try {
+            	System.out.println("Calling microservice.");
+            	respResult = 	apiInstance.{{nickname}}({{#allParams}}{{#isFile}}{{paramName}}{{/isFile}}{{^isFile}}{{paramName}}{{/isFile}}{{#hasMore}},{{/hasMore}}{{/allParams}});
+           		//System.out.println(respResult);
+           }
+           catch (com.ibm.mfp.adapters.sample.ApiException e) {
+            	System.err.println("Exception when calling {{classname}}#{{nickname}}");
+            	e.printStackTrace();
+            	return Response.status(e.getCode()).entity(e.getResponseBody()).build();
+           }  
+           catch (java.lang.Exception e) {
+            	System.err.println("Exception when calling {{classname}}#{{nickname}}");
+            	e.printStackTrace();
+            	return Response.status(Status.BAD_REQUEST).entity(e.getMessage()).build();
+        }
+        	System.out.println("Return from Node server: "+ respResult);
+        	if (respResult != null){
+            retval = respResult.toString();
+        	}
+        	return Response.ok().entity(respResult).build();
+         {{/vendorExtensions.x-java-is-response-void}}
+         
+         
+    }
+{{/operation}}
+}
+{{/operations}}

@@ -1,0 +1,19 @@
+{
+    "android": {
+        "release": {
+            "keystore": "dab-android.keystore",
+            "storePassword": "mfp123",
+            "alias": "dab-key",
+            "password" : "mfp123"
+        }
+    },
+    "ios": {
+        "release": {
+            "codeSignIdentity": "iPhone Developer",
+            "packageType": "ad-hoc",
+            "automaticProvisioning": true,
+            "developmentTeam": "<< Insert your Apple Developer Team ID. Find out your team ID from https://developer.apple.com/account/#/membership >>",
+            "buildFlag": "-UseModernBuildSystem=0"
+        }
+    }
+}

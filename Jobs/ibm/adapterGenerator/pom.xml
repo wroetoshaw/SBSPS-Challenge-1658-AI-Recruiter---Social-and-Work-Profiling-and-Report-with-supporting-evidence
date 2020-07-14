@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Licensed Materials - Property of IBM
+    5725-I43 (C) Copyright IBM Corp. 2011, 2016. All Rights Reserved.
+    US Government Users Restricted Rights - Use, duplication or
+    disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+   <groupId>com.ibm.swaggerAdapter</groupId>
+   <artifactId>swaggerAdaptergenerator</artifactId>
+   <version>1.0-SNAPSHOT</version>
+   <packaging>pom</packaging>
+   <name>swaggerAdaptergenerator</name>
+   <profiles>
+      <!-- DO NOT CHANGE THE *ORDER* IN WHICH THESE PROFILES ARE DEFINED! -->
+      <profile>
+        <id>compile-generator</id>
+        <modules>
+           <module>mfp-adapters-swagger-codegen</module>
+       </modules>
+      </profile>
+      <profile>
+         <id>adapter-generator</id>
+         <modules>
+            <module>adapter-generator</module>
+         </modules>
+      </profile>
+      <profile>
+         <id>compile-client</id>
+         <modules>
+            <module>client-api</module>
+         </modules>
+      </profile>
+      <profile>
+         <id>build-adapter</id>
+         <modules>
+            <module>generatedAdapter/adapter</module>
+         </modules>
+      </profile>
+   </profiles>
+</project>

@@ -1,0 +1,37 @@
+<link
+  href="https://fonts.googleapis.com/css?family=Raleway:400,600,900&display=swap"
+  rel="stylesheet"
+/>
+<ion-header>
+  <div class="divheader">
+    IBM Careers
+  </div>
+</ion-header>
+
+<ion-content padding text-center id="page-CustomHome">
+  <div class="content-container-hub-simple">
+    <div class="intro-content">
+      <h4>Available Jobs</h4>
+    </div>
+    <div *ngIf="hubcards.length <= 0">
+      <hr />
+      <h3>No jobs found :(</h3>
+      <hr />
+    </div>
+    <div *ngIf="hubcards.length > 0" class="hub-cards">
+      <div
+        class="card"
+        *ngFor="let hubcard of hubcards"
+        (click)="navigateFromHubCard(hubcard.jobTitle,hubcard.score_skills,hubcard.score_exp,hubcard.score_github,hubcard.score_academics)"
+      >
+        <img class="card-img" src="build/assets/imgs/hiring.jpg" />
+        <div class="card-content">
+          <h4>{{hubcard.jobTitle | uppercase}}</h4>
+          <p>
+            {{hubcard.description}}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

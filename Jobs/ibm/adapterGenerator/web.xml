@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Licensed Materials - Property of IBM
+    5725-I43 (C) Copyright IBM Corp. 2006, 2014. All Rights Reserved.
+    US Government Users Restricted Rights - Use, duplication or
+    disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+
+-->
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
+  <display-name>Adapter Generator</display-name>
+
+    <servlet>
+    <servlet-name>AdapterGeneratorServlet</servlet-name>
+    <servlet-class>org.apache.wink.server.internal.servlet.RestServlet</servlet-class>
+    <init-param>
+      <param-name>javax.ws.rs.Application</param-name>
+      <param-value>com.ibm.adaptergenerator.AdapterGeneratorServiceServlet</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdapterGeneratorServlet</servlet-name>
+    <url-pattern>/adapterapi/*</url-pattern>
+  </servlet-mapping>
+  
+  <security-role>
+    <role-name>mfpadmin</role-name>
+  </security-role>
+  <security-role>
+    <role-name>mfpdeployer</role-name>
+  </security-role>
+  <security-role>
+    <role-name>mfpmonitor</role-name>
+  </security-role>
+  <security-role>
+    <role-name>mfpoperator</role-name>
+  </security-role>
+  
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>mfpadaptergenRealm</web-resource-name>
+      <url-pattern>/adapterapi/*</url-pattern>
+      <http-method>GET</http-method>
+      <http-method>POST</http-method>
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>mfpadmin</role-name>
+      <role-name>mfpmonitor</role-name>
+      <role-name>mfpoperator</role-name>
+      <role-name>mfpdeployer</role-name>
+    </auth-constraint>
+    <user-data-constraint>
+      <transport-guarantee>NONE</transport-guarantee>
+    </user-data-constraint>
+  </security-constraint>
+  
+  <login-config>
+    <auth-method>BASIC</auth-method>
+    <realm-name>mfpadaptergenRealm</realm-name>
+  </login-config>
+  
+  <env-entry>
+    <description>
+			[OPTIONAL] Servers topology.
+			Possible values: Standalone, Cluster, Farm.
+			Default: Standalone.
+    </description>
+    <env-entry-name>mfp.topology.clustermode</env-entry-name>
+    <env-entry-type>java.lang.String</env-entry-type>
+    <env-entry-value></env-entry-value>
+  </env-entry>
+  
+</web-app>

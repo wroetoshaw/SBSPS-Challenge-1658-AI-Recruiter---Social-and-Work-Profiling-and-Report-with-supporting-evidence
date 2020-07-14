@@ -1,0 +1,55 @@
+<link
+  rel="stylesheet"
+  href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"
+/>
+
+<ion-content padding text-center id="page-FAQ">
+  <button class="buttonstatus" id="buttonalign" (click)="goBack()">
+    Go Back
+  </button>
+  <div class="container">
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="accordion">
+      <div class="accordion-item">
+        <a (click)="toggleClassStatus()" [ngClass]="{'active': statusActive}">
+          What is my Application status?
+        </a>
+        <div [ngClass]="{'active': statusActive}" class="content">
+          <button class="buttonstatus" (click)="checkStatus()">
+            Check status
+          </button>
+          <div>
+            <img *ngIf="loading.length>0" class="gif" src="build/assets/200.gif" />
+          </div>
+          <p *ngIf="applicationStatus.length>0">{{applicationStatus}}</p>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <a (click)="toggleClassjobs()" [ngClass]="{'active': statusJobs}">
+          What are the jobs available related to given skills?
+        </a>
+        <div [ngClass]="{'active': statusJobs}" class="content">
+          <button class="buttonstatus" (click)="checkJobs()">
+            Check jobs
+          </button>
+          <div>
+            <img *ngIf="loadingJob.length>0" class="gif" src="build/assets/200.gif" />
+          </div>
+          <p *ngIf="relevantJob.length>0">{{relevantJob}}</p>
+        </div>
+      </div>
+      <div class="accordion-item" *ngFor="let item of items">
+        <a (click)="toggleClass(item)" [ngClass]="{'active': item.active}">
+          {{item.name}}
+        </a>
+        <div [ngClass]="{'active': item.active}" class="content">
+          <p>
+            {{item.description}}
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- Test -->
+  </div>
+</ion-content>

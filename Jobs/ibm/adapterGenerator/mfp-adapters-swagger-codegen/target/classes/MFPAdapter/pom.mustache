@@ -1,0 +1,127 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+    <groupId>com.ibm.mfp</groupId>
+    <artifactId>{{artifactId}}</artifactId>
+	<version>{{artifactVersion}}</version>
+	<packaging>adapter</packaging>
+	<dependencies>
+		<dependency>
+			<groupId>com.ibm.mfp</groupId>
+			<artifactId>adapter-maven-api</artifactId>
+			<scope>provided</scope>
+			<version>8.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.ibm.mfp</groupId>
+			<artifactId>mfp-security-checks-base</artifactId>
+			<version>8.0.0</version>
+		</dependency>
+     		<dependency>
+      			<groupId>com.squareup.okhttp</groupId>
+      			<artifactId>okhttp</artifactId>
+      			<version>${okhttp-version}</version>
+    		</dependency>
+		<dependency>
+			<groupId>io.swagger</groupId>
+			<artifactId>swagger-annotations</artifactId>
+			<scope>provided</scope>
+			<version>1.5.6</version>
+		</dependency>
+    	<dependency>
+    		<groupId>io.swagger</groupId>
+    		<artifactId>{{artifactId}}</artifactId>
+    		<version>{{artifactVersion}}</version>
+    		<scope>compile</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.sun.jersey/jersey-core -->
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-core</artifactId>
+			<version>1.11</version>
+		</dependency>
+
+    <dependency>
+     <groupId>org.glassfish.jersey.media</groupId>
+      <artifactId>jersey-media-multipart</artifactId>
+      <version>${jersey2-version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.datatype</groupId>
+      <artifactId>jackson-datatype-joda</artifactId>
+      <version>${jackson-version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.jaxrs</groupId>
+      <artifactId>jackson-jaxrs-json-provider</artifactId>
+      <version>${jackson-version}</version> 
+    </dependency>
+    <!-- Base64 encoding that works in both JVM and Android -->
+    <!-- <dependency>
+      <groupId>com.brsanthu</groupId>
+      <artifactId>migbase64</artifactId>
+      <version>2.2</version>
+    </dependency> -->
+
+{{#useBeanValidation}}
+    <!-- Bean Validation API support -->
+    <!-- <dependency>
+        <groupId>javax.validation</groupId>
+        <artifactId>validation-api</artifactId>
+        <version>1.1.0.Final</version>
+        <scope>provided</scope>
+    </dependency> -->
+{{/useBeanValidation}}
+
+	
+	</dependencies>
+	<properties>
+		<!-- parameters for deploy mfp adapter -->
+		<mfpfUrl>http://localhost:9080/mfpadmin</mfpfUrl>
+		<mfpfUser>admin</mfpfUser>
+		<mfpfPassword>admin</mfpfPassword>
+		<mfpfRuntime>mfp</mfpfRuntime>
+
+	<java.version>{{#java8}}1.8{{/java8}}{{^java8}}1.7{{/java8}}</java.version>
+    <maven.compiler.source>1.7</maven.compiler.source>
+    <maven.compiler.target>1.7</maven.compiler.target>
+    <swagger-core-version>1.5.12</swagger-core-version>
+    <okhttp-version>2.7.5</okhttp-version>
+    <jetty-version>9.2.9.v20150224</jetty-version>
+    <jersey2-version>2.22.2</jersey2-version>
+    <jackson-version>2.8.7</jackson-version>
+    <servlet-api-version>2.5</servlet-api-version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+	</properties>
+		<build>
+    <sourceDirectory>src/main/java</sourceDirectory>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>2.6</version>
+		<configuration>
+			<failOnMissingWebXml>false</failOnMissingWebXml>
+		</configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-failsafe-plugin</artifactId>
+        <version>2.6</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>integration-test</goal>
+              <goal>verify</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+				<groupId>com.ibm.mfp</groupId>
+				<artifactId>adapter-maven-plugin</artifactId>
+				<extensions>true</extensions>
+		</plugin>
+    </plugins>
+  </build>
+</project>

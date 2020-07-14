@@ -1,0 +1,449 @@
+// http://ionicframework.com/docs/theming/
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+@import './assets/styles/flexboxgrid.min.css';
+@import './assets/styles/home/home.css';
+$ios-color-icon: #0076FF;
+$web-color-icon: #484848;
+$android-color-icon: #484848;
+.scroll-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 0 !important;
+}
+
+.mymodal{
+    width: 200px !important;
+    height: 200px !important;
+    top: 500px !important;
+    left: 500px !important;
+    position: absolute !important;
+    // z-index: 999;
+  }
+
+.msgWatson {
+    h4 {
+        display: flex;
+        max-width: 255px;
+        word-wrap: break-word;
+        margin-bottom: 20px;
+        line-height: 24px;
+        position: relative;
+        padding: 10px 20px;
+        color: white;
+        background: #0B93F6;
+        border-radius: 25px;
+        float: right;
+        &:before {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            bottom: -2px;
+            right: -7px;
+            height: 20px;
+            border-right: 20px solid #0B93F6;
+            border-bottom-left-radius: 16px 14px;
+            -webkit-transform: translate(0, -2px);
+        }
+        &:after {
+            content: "";
+            position: absolute;
+            z-index: 1;
+            bottom: -2px;
+            right: -56px;
+            width: 26px;
+            height: 20px;
+            background: white;
+            border-bottom-left-radius: 10px;
+            -webkit-transform: translate(-30px, -2px);
+        }
+    }
+}
+
+.msgUser {
+    h4 {
+        display: flex;
+        justify-content: flex-end;
+        max-width: 255px;
+        word-wrap: break-word;
+        margin-bottom: 20px;
+        line-height: 24px;
+        position: relative;
+        padding: 10px 20px;
+        background: #E5E5EA;
+        border-radius: 25px;
+        color: black;
+        float: left;
+        &:before {
+            content: "";
+            position: absolute;
+            z-index: 2;
+            bottom: -2px;
+            left: -7px;
+            height: 20px;
+            border-left: 20px solid #E5E5EA;
+            border-bottom-right-radius: 16px 14px;
+            -webkit-transform: translate(0, -2px);
+        }
+        &:after {
+            content: "";
+            position: absolute;
+            z-index: 3;
+            bottom: -2px;
+            left: 4px;
+            width: 26px;
+            height: 20px;
+            background: white;
+            border-bottom-right-radius: 10px;
+            -webkit-transform: translate(-30px, -2px);
+        }
+    }
+}
+
+.list-component {
+    ion-fab[bottom] {
+        bottom: 32px;
+    }
+    ion-fab[right] {
+        right: 32px;
+        right: calc(32px + constant(safe-area-inset-right));
+        right: calc(32px + env(safe-area-inset-right));
+    }
+    .fab {
+        font-size: 37px;
+    }
+    .listtitle {
+        margin-top: 10px;
+        .action-holder {
+            >div {
+                display: table;
+                float: right;
+                .action {
+                    text-decoration: none;
+                    display: table-cell;
+                    vertical-align: middle;
+                    padding-left: 15px;
+                    ion-icon {
+                        display: table-cell;
+                        vertical-align: top;
+                        padding-top: 2px;
+                        font-size: 1.2em;
+                        color: inherit;
+                    }
+                    .mfp-label {
+                        display: table-cell;
+                        vertical-align: top;
+                        padding-left: 5px;
+                    }
+                }
+            }
+        }
+    }
+    .filter-holder {
+        margin-top: 5px;
+        .item-select {
+            padding-left: 0px;
+        }
+    }
+    @media (min-width: 481px) {
+        .filter-holder {
+            width: 420px;
+        }
+    }
+    ion-list.list {
+        display: block;
+        margin-top: 120px;
+        overflow-y: auto;
+        padding-top: 5px !important;
+        &.filter-hidden {
+            margin-top: 70px;
+        }
+        &.list-md {
+            .scroll-content {
+                padding: 0px;
+            }
+            .item-block .item-inner {
+                border-bottom: none;
+            }
+        }
+        .item-holder {
+            display: inline-block;
+            width: 45%;
+            border-bottom: 1px solid #dedede;
+            &:nth-child(odd) {
+                margin-right: 40px;
+            }
+            ion-label>div:first-child {
+                margin-bottom: 5px;
+            }
+            .item-title {
+                font-weight: bold;
+            }
+        }
+        @media (max-width: 480px) {
+            .item-holder {
+                display: block;
+                width: 100%;
+                padding-right: 0px;
+            }
+        }
+        .image-icon {
+            +.status {
+                position: absolute;
+                left: 28px;
+                top: 8px;
+                +.item-inner {
+                    margin-left: 10px;
+                }
+            }
+        }
+        .image-src {
+            +.status {
+                position: absolute;
+                left: 54px;
+                top: 3px;
+                +.item-inner {
+                    margin-left: 10px;
+                }
+            }
+        }
+    }
+}
+
+.listDetailsHolder {
+    .scroll-content {
+        margin-top: 56px;
+        overflow: auto;
+    }
+    .viewTitle {
+        width: 100%;
+    }
+    ion-item {
+        padding-left: 0px;
+    }
+    .content {
+        width: 100%;
+        @media (min-width: 768px) {
+            height: calc(100% - 58px);
+        }
+    }
+    .actionButtons {
+        width: calc(100% - 32px);
+        margin: 20px 0px;
+        text-align: right;
+        >button {
+            text-align: right;
+            margin-top: 15px;
+            @media (min-width: 768px) {
+                margin: 0.4rem 0.2rem;
+                contain: inherit;
+                width: initial;
+                display: inline-block;
+            }
+        }
+    }
+}
+
+// chat stylings
+// for web 
+.platform-core {
+    ion-header {
+        ion-icon {
+            color: $web-color-icon;
+        }
+    }
+    div[component-name="studio-challenge-handler"] {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        margin-top: 4rem;
+        ion-item {
+            width: 40%;
+        }
+        button {
+            margin-top: 4rem !important;
+        }
+    }
+    div[component-name="studio-watson-chat-bot"] {
+        height: 70%;
+        align-items: center;
+        .chat-container {
+            width: 50%;
+            height: 100vh;
+        }
+        ion-footer {
+            left: auto !important;
+            width: 50% !important;
+            position: relative !important;
+        }
+        ion-toolbar {
+            padding: 0;
+            display: flex;
+            border: 1px solid #e9e9e9;
+            padding: 0;
+            .toolbar-content {
+                max-width: 82%;
+            }
+            ion-input {
+                input {
+                    display: inline-block;
+                    white-space: nowrap;
+                    overflow: hidden !important;
+                    text-overflow: ellipsis;
+                }
+                width: 100%;
+            }
+            ion-buttons {
+                background: #3388f6;
+                height: 100%;
+                right: 0;
+                top: 0;
+                position: absolute;
+                z-index: 3;
+                width: 8%;
+                align-items: center;
+                display: flex;
+                justify-content: center;
+                margin: 0;
+                ion-icon {
+                    font-size: 2.5rem;
+                    color: white;
+                }
+            }
+        }
+    }
+    div[component-name="studio-watson-visual-recognition"] {
+        #image {
+            max-width: 400px;
+        }
+    }
+}
+
+// chat styling for mobile
+.platform-android {
+    ion-header {
+        ion-icon {
+            color: $android-color-icon;
+        }
+    }
+    div[component-name="studio-watson-chat-bot"] {
+        height: 100%;
+        align-items: center;
+        .chat-container {
+            width: 100% !important;
+            height: 80vh;
+        }
+        ion-icon {
+            font-size: 2.5rem;
+            color: white;
+        }
+        ion-footer {
+            width: 100% !important;
+        }
+        ion-toolbar {
+            .toolbar-content {
+                max-width: 82%;
+            }
+            ion-input {
+                input {
+                    display: inline-block;
+                    white-space: nowrap;
+                    overflow: hidden !important;
+                    text-overflow: ellipsis;
+                }
+                width: 100%;
+            }
+            ion-buttons {
+                background: #3388f6;
+                height: 100%;
+                right: 0;
+                top: 0;
+                position: absolute;
+                z-index: 3;
+                width: 15%;
+                align-items: center;
+                display: flex;
+                justify-content: center;
+                margin: 0;
+            }
+        }
+    }
+    div[component-name="studio-challenge-handler"] {
+        .login-wrapper {
+            width: 100% !important;
+        }
+    }
+}
+
+.platform-ios {
+    ion-header {
+        ion-icon {
+            color: $ios-color-icon;
+        }
+    }
+    div[component-name="studio-watson-chat-bot"] {
+        height: 100%;
+        align-items: center;
+        .chat-container {
+            width: 100% !important;
+            height: 80vh;
+        }
+        ion-icon {
+            font-size: 2.5rem;
+            color: white;
+        }
+        ion-footer {
+            width: 100% !important;
+        }
+        ion-toolbar {
+            ion-buttons {
+                background: #3388f6;
+                height: 100%;
+                right: 0;
+                top: 0;
+                position: absolute;
+                z-index: 3;
+                width: 15%;
+                align-items: center;
+                display: flex;
+                justify-content: center;
+                margin: 0;
+            }
+            .toolbar-content {
+                max-width: 82%;
+            }
+            ion-input {
+                input {
+                    display: inline-block;
+                    white-space: nowrap;
+                    overflow: hidden !important;
+                    text-overflow: ellipsis;
+                }
+                width: 100%;
+            }
+        }
+    }
+    div[component-name="studio-challenge-handler"] {
+        .login-wrapper {
+            width: 100% !important;
+        }
+    }
+}
+ @import './assets/styles/CustomHome/CustomHome.css';
+ @import './assets/styles/chat/chat.css';
+ @import './assets/styles/FAQ/FAQ.css';
+ @import './assets/styles/FAQ/FAQ.css';
+ @import './assets/styles/ModalPage/ModalPage.css';
+ @import './assets/styles/Landing/Landing.css';

@@ -1,0 +1,124 @@
+<link
+  href="https://fonts.googleapis.com/css?family=Raleway:400,600,900&display=swap"
+  rel="stylesheet"
+/>
+<ion-header>
+  <ion-navbar>
+    <ion-title>Chat</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding text-center id="page-chat">
+  <div class="chat-container-simplisctic">
+    <div class="chat-intro">
+      <img src="build/assets/imgs/chatbot.png" />
+      <div class="intro-text-container">
+        <h4>Watson Bot</h4>
+        <p>
+          You are talking to your friendly neighborhood IBM Watson bot. I will
+          be as helpful as I possibly can. Here is hoping you find the answers
+          you are looking for.
+        </p>
+      </div>
+    </div>
+    <ul class="chat-wrapper-simplisctic">
+      <li
+        class="support-msg-simplisctic animated animatedFadeInUp fadeInUp"
+        *ngIf="resume == 'yes'"
+      >
+        <div class="msg-addons">
+          <img class="bot-img" src="build/assets/imgs/bot-simple.png" />
+        </div>
+        <div class="msg-content-container">
+          <p class="msg-head">{{'BOT'}}</p>
+          <p class="msg">
+            {{'Please upload your resume by selecting the file icon below'}}
+          </p>
+        </div>
+        <!-- <span>{{msg.time}}</span> -->
+      </li>
+      <!-- <li
+        class="user-msg-simplisctic animated animatedFadeInUp fadeInUp"
+        *ngIf="fileName.length > 0"
+      >
+        <div class="msg-content-container">
+          <p class="msg-head">{{username}}</p>
+          <p class="msg">{{fileName}}</p>
+        </div>
+      </li> -->
+      <li
+        *ngFor="let msg of messages"
+        [attr.class]="!msg.isWatson ? 'user-msg-simplisctic animated animatedFadeInUp fadeInUp' : 'support-msg-simplisctic animated animatedFadeInUp fadeInUp'"
+      >
+        <div class="msg-addons" *ngIf="msg.isWatson">
+          <img class="bot-img" src="build/assets/imgs/bot-simple.png" />
+        </div>
+        <div class="msg-content-container">
+          <p class="msg-head">{{msg.isWatson ? 'BOT' : username}}</p>
+          <p class="msg">{{msg.m}}</p>
+        </div>
+        <span>{{msg.time}}</span>
+      </li>
+    </ul>
+    <div class="chat-input-container">
+      <textarea
+        placeholder="Your message here..."
+        [(ngModel)]="input"
+        (keyup.enter)="message()"
+      ></textarea>
+      <div class="image-upload send-btn-simplisctic">
+        <label for="file-input">
+          <img src="build/assets/imgs/list.svg" />
+        </label>
+
+        <input
+          id="file-input"
+          type="file"
+          (change)="uploadFile($event.target.files)"
+        />
+      </div>
+      <!-- <button class="send-btn-simplisctic" (click)="pickFile()">
+        <svg
+          id="Capa_1"
+          enable-background="new 0 0 512 512"
+          height="512"
+          viewBox="0 0 512 512"
+          width="512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g>
+            <path
+              d="m127.741 209h-31.741c-3.986 0-7.809 1.587-10.624 4.41s-4.389 6.651-4.376 10.638l.221 113.945c0 8.284 6.716 15 15 15s15-6.716 15-15v-34.597c6.133-.031 12.685-.058 16.52-.058 26.356 0 47.799-21.16 47.799-47.169s-21.443-47.169-47.799-47.169zm0 64.338c-3.869 0-10.445.027-16.602.059-.032-6.386-.06-13.263-.06-17.228 0-3.393-.017-10.494-.035-17.169h16.696c9.648 0 17.799 7.862 17.799 17.169s-8.15 17.169-17.798 17.169z"
+            />
+            <path
+              d="m255.33 209h-31.33c-3.983 0-7.803 1.584-10.617 4.403s-4.391 6.642-4.383 10.625c0 .001.223 110.246.224 110.646.015 3.979 1.609 7.789 4.433 10.592 2.811 2.79 6.609 4.354 10.567 4.354h.057c.947-.004 23.294-.089 32.228-.245 33.894-.592 58.494-30.059 58.494-70.065-.001-42.054-23.981-70.31-59.673-70.31zm.655 110.38c-3.885.068-10.569.123-16.811.163-.042-13.029-.124-67.003-.147-80.543h16.303c27.533 0 29.672 30.854 29.672 40.311 0 19.692-8.972 39.719-29.017 40.069z"
+            />
+            <path
+              d="m413.863 237.842c8.284 0 15-6.716 15-15s-6.716-15-15-15h-45.863c-8.284 0-15 6.716-15 15v113.158c0 8.284 6.716 15 15 15s15-6.716 15-15v-42.65h27.22c8.284 0 15-6.716 15-15s-6.716-15-15-15h-27.22v-25.508z"
+            />
+            <path
+              d="m458 145h-11v-4.279c0-19.282-7.306-37.607-20.572-51.601l-62.305-65.721c-14.098-14.87-33.936-23.399-54.428-23.399h-199.695c-24.813 0-45 20.187-45 45v100h-11c-24.813 0-45 20.187-45 45v180c0 24.813 20.187 45 45 45h11v52c0 24.813 20.187 45 45 45h292c24.813 0 45-20.187 45-45v-52h11c24.813 0 45-20.187 45-45v-180c0-24.813-20.187-45-45-45zm-363-100c0-8.271 6.729-15 15-15h199.695c12.295 0 24.198 5.117 32.657 14.04l62.305 65.721c7.96 8.396 12.343 19.391 12.343 30.96v4.279h-322zm322 422c0 8.271-6.729 15-15 15h-292c-8.271 0-15-6.729-15-15v-52h322zm56-97c0 8.271-6.729 15-15 15h-404c-8.271 0-15-6.729-15-15v-180c0-8.271 6.729-15 15-15h404c8.271 0 15 6.729 15 15z"
+            />
+          </g>
+        </svg>
+      </button> -->
+      <button class="send-btn-simplisctic" (click)="message()">
+        <svg
+          focusable="false"
+          preserveAspectRatio="xMidYMid meet"
+          xmlns="http://www.w3.org/2000/svg"
+          width="32"
+          height="32"
+          viewBox="0 0 32 32"
+          aria-hidden="true"
+          style="will-change: transform;"
+        >
+          <path
+            d="M27.45 15.11l-22-11a1 1 0 0 0-1.08.12 1 1 0 0 0-.33 1L6.69 15H18v2H6.69L4 26.74A1 1 0 0 0 5 28a1 1 0 0 0 .45-.11l22-11a1 1 0 0 0 0-1.78z"
+          ></path>
+          <title>Send filled</title>
+        </svg>
+      </button>
+    </div>
+  </div>
+</ion-content>

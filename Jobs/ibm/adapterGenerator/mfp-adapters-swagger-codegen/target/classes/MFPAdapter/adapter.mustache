@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mfp:adapter name="{{artifactId}}"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:mfp="http://www.ibm.com/mfp/integration"
+             xmlns:http="http://www.ibm.com/mfp/integration/http">
+
+    <displayName>{{artifactId}}</displayName>
+    <description>{{artifactId}}</description>
+
+    <JAXRSApplicationClass>{{apiPackage}}.{{adapterApplicationClassname}}</JAXRSApplicationClass>
+    
+    
+    {{#isBothAuthSet}}
+				<property name="username" displayName="Credentials: Username" defaultValue=""  />
+				<property name="password" displayName="Password" defaultValue="" />
+				<property name="url" displayName="Service URL" defaultValue='{{externalserviceurl}}' />
+	{{/isBothAuthSet}}
+	{{^isBothAuthSet}}
+    {{#authMethods}}{{#isApiKey}}
+         		<property name="apikey" displayName="Credentials: Service ApiKey" defaultValue=""  />
+         		<property name="url" displayName="Service URL" defaultValue='{{externalserviceurl}}' />
+         		<property name="url" displayName="Service URL" defaultValue='{{{externalserviceurl}}}' />
+    {{/isApiKey}}{{/authMethods}}
+	
+	{{#authMethods}}{{#isBasic}}
+         		<property name="username" displayName="Credentials: Username" defaultValue=""  />
+				<property name="password" displayName="Password" defaultValue="" />
+				<property name="url" displayName="Service URL" defaultValue='{{externalserviceurl}}' />
+	{{/isBasic}}{{/authMethods}}
+	{{/isBothAuthSet}}
+
+</mfp:adapter>

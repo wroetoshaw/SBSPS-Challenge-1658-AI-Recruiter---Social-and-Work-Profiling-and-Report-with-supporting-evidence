@@ -1,0 +1,232 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "TRIRIGA Building Insights Vajra Engine",
+        "version": "0.0.1"
+    },
+    "host":"vajra-simulator.mybluemix.net",
+    "basePath": "",
+    "schemes":[
+      "http"
+   ],
+   "tags":[  
+      {  
+         "name":"Rules",
+         "description":"Rules"
+      },
+	  {  
+         "name":"Meters",
+         "description":"Meters"
+      }
+   ],
+    "paths": {
+        "/rule": {
+            "post": {
+                "summary": "Assign Rule",
+				"tags": [
+					"Rules"
+				],
+                "responses": {
+                    "default": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/rules": {
+            "get": {
+                "summary": "Get All Rules",
+				"tags": [
+					"Rules"
+				],
+                "responses": {
+                    "default": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/rule/{ruleName}": {
+            "delete": {
+                "summary": "Deletes a given rule",
+				"tags": [
+					"Rules"
+				],
+                "parameters": [
+                    {
+                        "name": "ruleName",
+                        "in": "path",
+                        "description": "rule to be deleted",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/meters/{meterName}/readings": {
+            "get": {
+                "summary": "Meter Readings",
+				"tags": [
+					"Meters"
+				],
+                "parameters": [
+                    {
+                        "name": "meterName",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/HistoricalValuesArrayObject"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/meters/{meterName}": {
+            "get": {
+                "summary": "Get Meter Data",
+				"tags": [
+					"Meters"
+				],
+				"produces":[
+					"application/json"
+				],
+                "parameters": [
+                    {
+                        "name": "meterName",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200":{
+                        "description":"The specified customer from the database",
+                        "schema":{
+                            "$ref":"#/definitions/MeterMetadataObject"
+                        }
+                    }
+                }
+            }
+        },
+        "/meters": {
+            "get": {
+                "summary": "Get all meters",
+				"tags": [
+					"Meters"
+				],
+				"produces":[
+					"application/json"
+				],
+                "description": "Get all meters",
+                "responses": {
+                    "default": {
+                        "description": "",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/MeterMetadataArrayObject"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "HistoricalValuesArrayObject": {
+            "type": "object",
+            "properties": {
+                "Time": {
+                    "type": "string"
+                },
+                "Value": {
+                    "type": "number"
+                }
+            }
+        },
+        "MeterMetadataArrayObject": {
+            "type": "object",
+            "properties": {
+                "meterName": {
+                    "type": "string"
+                },
+                "interval": {
+                    "type": "string"
+                },
+                "dataPoint": {
+                    "type": "string"
+                },
+                "units": {
+                    "type": "string"
+                },
+                "meterId": {
+                    "type": "string"
+                },
+                "firmwarelevel": {
+                    "type": "string"
+                },
+                "model": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "location": {
+                    "type": "string"
+                }
+            }
+        },
+        "MeterMetadataObject": {
+            "type": "object",
+            "properties": {
+                "meterName": {
+                    "type": "string"
+                },
+                "interval": {
+                    "type": "string"
+                },
+                "dataPoint": {
+                    "type": "string"
+                },
+                "units": {
+                    "type": "string"
+                },
+                "meterId": {
+                    "type": "string"
+                },
+                "firmwarelevel": {
+                    "type": "string"
+                },
+                "model": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "location": {
+                    "type": "string"
+                },
+                "Timestamp": {
+                    "type": "string"
+                },
+                "Value": {
+                    "type": "number"
+                }
+            }
+        }
+    }
+}

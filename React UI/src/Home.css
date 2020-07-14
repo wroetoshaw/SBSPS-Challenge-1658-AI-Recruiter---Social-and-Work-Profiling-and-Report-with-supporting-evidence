@@ -1,0 +1,129 @@
+h3,
+h2 {
+	color: #262626;
+	line-height: 24px;
+	font-weight: 700;
+	margin-bottom: 4px;
+}
+h2 {
+	font-size: 1.5rem;
+}
+h3 {
+	font-size: 0.95rem;
+	font-weight: 400;
+}
+
+p {
+	color: #262626;
+	font-size: 17px;
+	font-weight: 400;
+	line-height: 20px;
+}
+
+.App {
+	margin-left: 20rem;
+	margin-right: 20rem;
+	margin-top: 3rem;
+	/* background: red; */
+}
+
+.App-header {
+	/* display: flex; */
+	/* flex-direction: column-reverse; */
+	/* align-items: flex-end; */
+	/* background: green; */
+	margin-left: 50rem;
+	/* right: 0;
+	bottom: 0; */
+	height: 2.5rem;
+}
+
+.job-button {
+	color: blue;
+	height: 2.5rem;
+	background: none;
+	padding-bottom: 0.5rem;
+}
+
+.App-body {
+	display: flex;
+	flex-direction: column;
+	/* margin-left: 20rem; */
+	/* align-items: center; */
+	/* background: yellow; */
+}
+
+.form-header {
+	background-image: linear-gradient(to right, #0e1319, #111a25, #142032, #182740, #1e2d4d);
+	color: white;
+}
+
+.job-card {
+	/* top: 0px; */
+	/* display: block; */
+	position: relative;
+	/* background: #f8f9fa; */
+	background: white;
+	/* color: #2e3134; */
+	color: #17223b;
+	width: 55rem;
+	height: 24rem;
+	margin: 0.75rem;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	border: 1px solid #dfe1e5;
+	/* border-bottom: 1px solid #dfe1e5; */
+	/* border: 1px solid blue; */
+	border-radius: 1.5rem;
+	box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175) !important;
+	box-sizing: border-box;
+	cursor: pointer;
+	transition: all 0.3s;
+}
+
+.job-card-header {
+	background-image: linear-gradient(to right, #0e1319, #111a25, #142032, #182740, #1e2d4d);
+	color: black;
+	/* background: green; */
+	font-size: 10rem;
+}
+
+.job-title {
+	color: whitesmoke;
+	line-height: 2rem;
+}
+
+.card-headings {
+	padding: 0.5rem;
+	color: black;
+	font-weight: 700;
+}
+
+.card-headings-text {
+	font-size: 1.1rem;
+	margin: 0 0 0 0.5rem;
+}
+
+.job-card:hover {
+	transition: all 0.2s ease-out;
+	box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
+	background-color: #dfc7bf;
+}
+
+.job-description {
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.card-body {
+	padding-bottom: 6rem;
+}
+
+.button {
+	background: none;
+	color: blue;
+}
+
+.button:hover {
+	text-decoration: none;
+}

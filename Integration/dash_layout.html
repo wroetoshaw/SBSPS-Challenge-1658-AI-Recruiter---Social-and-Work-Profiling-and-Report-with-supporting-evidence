@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {%metas%}
+    <title>Report Analysis</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    {%favicon%}
+<!-- <link rel="stylesheet" type="text/css" href="static/styles.css"> -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial;}
+
+.final_button{
+  background-color: #f1f1f1;
+}
+
+html,body {
+    margin:0;
+    padding:0;
+}
+
+h3{
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Style the tab */
+
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  color: #ececec;
+  background-image: linear-gradient(to bottom, #0e1319, #111a25, #142032, #182740, #1e2d4d);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: -20px;
+  margin-left: -2px;
+  margin-right: -2px;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  color: #ececec;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+  border-right: 1px solid grey;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  filter: grayscale(0%) opacity(1);
+  background: #141418;
+  color: #ececec;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background: #141418;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-gap: 50px;
+  padding: 50px;
+}
+.grid-container > div {
+  text-align: center;
+  padding: 50px 0;
+  font-size: 30px;
+}
+
+.skill_image{
+  height : 500px;
+  width : 500px;
+}
+
+.fig_academics{
+  margin-left: 200px;
+  padding-top:70px;
+  /* margin-top: -60px; */
+}
+
+.fig_evidence{
+  margin-left: 200px;
+}
+
+.fig_experience{
+  margin-top:48px;
+}
+
+.wordcloud_skills_div{
+  margin-left:-90px;
+  margin-top: -60px;
+}
+
+.fig_commit{
+  margin-left: 180px;
+}
+
+.fig_month{
+  margin-left: 180px;
+}
+
+.fig_heatmap{
+  margin-left: 400px;
+}
+
+.fixed_button{
+  position: fixed;
+  top: 58px;
+  right: 50px; 
+}
+
+.fig_persona{
+  margin-left: 200px;
+}
+
+.fig_areaOfImp{
+  margin-left: 200px;
+}
+
+.hashtag_div{
+  margin-left: -160px;
+}
+
+.final_button{
+  /* background-color: #007bff; */
+  background-image: linear-gradient(to bottom, #0e1319, #111a25, #142032, #182740, #1e2d4d);
+}
+
+/* .final_button:hover{ */
+  /* filter: grayscale(0%) opacity(1); */
+  /* background: #141418; */
+/* } */
+
+</style>
+</head>
+<body>
+<!-- <h2>Report of Analysis</h2>
+<p>Navigate to start analysing</p> -->
+
+
+<div class="tab">
+  <!-- <button class="tablinks" style="width: 30%;" onclick="">REPORT ANALYSIS</button> -->
+  <button class="tablinks active" style="width: 20%;" onclick="openTab(event, 'Statistics')">Statistics</button>
+  <button class="tablinks" style="width: 20%;" onclick="openTab(event, 'Overall Analysis')">Overall Analysis</button>
+  <button class="tablinks" style="width: 20%;" onclick="openTab(event, 'Work Profile')">Work Profile</button>
+  <button class="tablinks" style="width: 20%;" onclick="openTab(event, 'Social Profile')">Social Profile</button>
+  <button class="tablinks" style="width: 20%;" onclick="openTab(event, 'Chatbot Conv. Profile')">Chatbot Conv. Profile</button>
+</div>
+
+<div class="fixed_button">
+  {%app_entry%}
+</div>
+
+<div id="Statistics" class="tabcontent">
+  <h3>Statistics Report</h3>
+  <center>
+    <table class="table table-striped table-hover" style="width:750px;margin-top: 60px;">
+      <thead>
+        <tr>
+          <th scope="col" colspan="3"><center>Statistics</center></th>
+        </tr>
+      </thead>
+      <tbody>
+            <!-- Contact -->
+        <tr>
+          <th scope="row" rowspan="4">Contact</th>
+            <td><b>Name</b></td>
+            <td class="table_name"></td>
+          </tr>
+          <tr>
+              <td><b>Email</b></td>
+              <td class="table_email"></td>
+          </tr>
+          <tr>
+              <td><b>Username</b></td>
+              <td class="table_user"></td>
+          </tr>
+          <tr>
+              <td><b>Phone</b></td>
+              <td class="table_phone"></td>
+          </tr>
+  
+              <!-- Achievements  -->
+  
+          <tr>
+              <th scope="row" rowspan="3">Top 3 Achievements</th>
+              <td colspan="2" class="table_ach_1"></td>
+          </tr>
+          <tr>
+              <td colspan="2" class="table_ach_2"></td>
+          </tr>
+          <tr>
+              <td colspan="2" class="table_ach_3"></td>
+          </tr>
+              <!-- Relevant Job -->
+          <tr>
+              <th scope="row">Suggested Jobs</th>
+              <td colspan="2" class="table_job"></td>
+          </tr>
+          <!-- Score Headings -->
+          <tr>
+            <th><b style="margin-left:100px">Skills Rating</b></th>
+            <th colspan="2"><b style="margin-left:100px">Overall Score</b></th>
+          </tr>   
+          <tr>
+              <td rowspan="2" class="table_skill_score"></td>
+              <td rowspan="2" colspan="2" class="table_overall_score"></td>
+          </tr>
+      </tbody>
+    </table>
+  </center>
+</div>
+
+<div id="Overall Analysis" class="tabcontent">
+    <h3>Overall Profile Analysis Report</h3>
+    <div class="grid-container">
+        <div class="fig_evidence"><div class='link_proj_url'></div></div>  
+        <div class="fig_experience"></div>
+        <div class="fig_academics"></div>
+        <div class="wordcloud_skills_div">
+          <h5>Project Skills vs Overall Skills</h5>
+          <p style="font-size:15px">Red - Project, White - Overall</p>
+          <div class="wordcloud_skills"></div>
+        </div>
+        
+        <!-- <div class="item4">4</div>
+        <div class="item5">5</div>
+        <div class="item6">6</div> -->
+      </div>
+</div>
+
+<div id="Work Profile" class="tabcontent">
+    <h3>Work Profile Analysis Report</h3>
+    <div class="grid-container">
+        <div class="fig_commit"></div>
+        <div class="fig_year"></div>
+        <div class="fig_month"></div>  
+        <div class="fig_lang"></div>
+        <div class="fig_heatmap"></div>
+      </div>
+</div>
+
+<div id="Social Profile" class="tabcontent">
+  <h3>Social Profile Analysis Report</h3>
+  <div class="grid-container">
+        <div class="fig_persona"></div>
+        <div class="fig_values"></div> 
+        <div class="fig_areaOfImp"></div>
+        <div class="hashtag_div">
+          <h5>Twitter Hashtags Analysis</h5>
+          <div class="wordCloud"></div>
+        </div>
+        
+  </div>
+</div>
+
+<div id="Chatbot Conv. Profile" class="tabcontent">
+  <h3>Chatbot Conversation Profile</h3>
+  <div class="grid-container">
+        <div class="teamplayer"></div>
+        <div class="convAnalysis"></div> 
+        <div class="skillTrend"></div>
+  </div>
+</div>
+
+
+
+<script>
+function openTab(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  if(!evt.currentTarget.ignore){
+    for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  } 
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+openTab({currentTarget:{
+  className: "tablinks",
+  ignore: "yes"
+}}, 'Statistics')
+
+
+
+</script>
+<footer>
+    {%config%}
+    {%scripts%}
+    {%renderer%}
+</footer>
+
+</body>
+</html> 

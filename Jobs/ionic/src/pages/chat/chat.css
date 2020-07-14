@@ -1,0 +1,370 @@
+.content-container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.image-upload > input
+{
+    display: none;
+}
+
+.image-upload img
+{
+    width:32px;
+    height: 32px;
+    cursor: pointer;
+}
+
+page-chat .toolbar {
+    min-height: 12vh !important;
+}
+
+page-chat ion-navbar .toolbar-background {
+    background: #28313B;
+    border: none !important;
+}
+
+page-chat ion-navbar .title {
+    margin-top: 2rem;
+}
+
+page-chat .toolbar-title {
+    font-family: Raleway;
+    font-weight: 600;
+    font-size: 2rem;
+    letter-spacing: 0.1rem;
+    color: #e6e6e6;
+    text-align: center;
+}
+
+#page-chat .scroll-content {
+    margin-top: 12vh !important;
+    height: auto;
+    overflow: hidden;
+    padding: 0;
+}
+
+#page-chat .chat-container-simplisctic,
+#page-chat .chat-wrapper-simplisctic {
+    width: 100%;
+}
+
+#page-chat .chat-wrapper-simplisctic {
+    list-style: none;
+    overflow: scroll;
+    padding: 2.5rem;
+    padding-top: 0rem;
+    padding-bottom: 5rem;
+    height: 490px;
+    font-family: Raleway;
+}
+
+#page-chat .chat-intro {
+    display: none;
+}
+
+#page-chat .chat-wrapper-simplisctic .support-msg-simplisctic {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    text-align: left;
+    float: left;
+    width: 70%;
+}
+
+
+#page-chat .chat-wrapper-simplisctic .support-msg-simplisctic .msg-content-container {
+    padding: 1rem;
+    padding-bottom: 1.5rem;
+    color: #484848;
+    border-radius: 7px;
+    border-bottom-left-radius: 0px;
+    margin-bottom: 0.5rem;
+    font-family: Raleway;
+    width: 80%;
+    background-image: linear-gradient(219deg, #c8c7cc, #eef2f3);
+    box-shadow: 2px 2px 4px 0px #dcdcdc;
+    margin-left: 18%;
+}
+
+#page-chat .chat-wrapper-simplisctic .support-msg-simplisctic .msg-content-container .msg-head {
+    margin: 0;
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 900;
+}
+
+#page-chat .chat-wrapper-simplisctic .support-msg-simplisctic .msg-addons {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    top: 7vh;
+}
+
+#page-chat .chat-wrapper-simplisctic .support-msg-simplisctic .msg-addons img {
+    max-width: 100%;
+    border: 0;
+    height: 35px;
+    width: 35px;
+    border-radius: 5px;
+}
+
+#page-chat .chat-wrapper-simplisctic .support-msg-simplisctic span {
+    font-size: 1.2rem;
+    padding-left: 0.5rem;
+    position: absolute;
+    left: 77%;
+    top: 100%;
+}
+
+#page-chat .chat-wrapper-simplisctic .user-msg-simplisctic {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    float: right;
+    width: 70%;
+    align-items: flex-end;
+    margin-top: 10%;
+}
+
+#page-chat .chat-wrapper-simplisctic .user-msg-simplisctic .msg-content-container {
+    padding: 1.5rem;
+    color: white;
+    border-radius: 7px;
+    border-bottom-right-radius: 0px;
+    margin-bottom: 0.5rem;
+    font-family: Raleway;
+    background-color: #485461;
+    background-image: linear-gradient(315deg, #485461 0%, #28313b 74%);
+    box-shadow: -2px 3px 3px 0px #3745547a;
+    opacity: 1;
+}
+
+#page-chat .chat-wrapper-simplisctic .user-msg-simplisctic .msg-content-container .msg-head {
+    margin: 0;
+    text-align: right;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 900;
+}
+
+#page-chat .chat-wrapper-simplisctic .user-msg-simplisctic span {
+    font-size: 1.2rem;
+    padding-left: 0.5rem;
+}
+
+#page-chat .chat-wrapper-simplisctic .msg {
+    margin: 0;
+    font-weight: 600;
+}
+
+#page-chat .chat-container-simplisctic .chat-input-container {
+    bottom: 2rem;
+    width: 90%;
+    left: 5%;
+    border-radius: 7px;
+    padding: 0.5rem;
+    max-height: 12vh;
+    align-items: center;
+    display: flex;
+    min-height: 8vh;
+    justify-content: space-between;
+    /* border-top: 1px solid #598a9d; */
+    position: fixed;
+    /* width: 100%; */
+    background: #fff;
+    box-shadow: 0px 0px 8px 3px #cecccc;
+}
+
+#page-chat .chat-container-simplisctic .chat-input-container textarea {
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+    width: 80%;
+    color: #484848;
+    border: none;
+    padding: 1rem;
+    font-size: 1.6rem;
+    max-height: 10vh;
+}
+
+#page-chat .chat-container-simplisctic .chat-input-container button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0.7rem;
+    background: #e0e0e0;
+    border-radius: 7px;
+    width: 40px;
+    height: 40px;
+}
+
+#page-chat .chat-container-simplisctic .chat-input-container button svg {
+    height: 2.5rem;
+    width: 2.5rem;
+    fill: #28313B;
+}
+
+
+/* web ui */
+
+.platform-core #page-chat {
+    background: #fff;
+}
+
+.platform-core page-chat .wave-1 {
+    transform: skewY(-31deg);
+    top: -5%;
+}
+
+.platform-core page-chat .wave-2 {
+    top: 13%;
+    transform: skewY(130deg);
+}
+
+.platform-core #page-chat .chat-wrapper-simplisctic {
+    padding-bottom: 7%;
+}
+
+.platform-core #page-chat .chat-container-simplisctic {
+    height: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    display: flex;
+}
+
+.platform-core #page-chat .chat-intro {
+    width: 26%;
+    display: block;
+}
+
+.platform-core #page-chat .chat-intro img {
+    width: 50%;
+}
+
+.platform-core #page-chat .chat-intro .intro-text-container {
+    font-family: Raleway;
+}
+
+.platform-core #page-chat .chat-intro .intro-text-container h4 {
+    font-weight: 800;
+    font-size: 2.5rem;
+    color: #3e3e3e;
+}
+
+.platform-core #page-chat .chat-intro .intro-text-container p {
+    font-size: 1.5rem;
+    padding: 2rem;
+    color: #484848;
+}
+
+.platform-core #page-chat .chat-wrapper-simplisctic {
+    width: 50%;
+    height: 80vh;
+}
+
+.platform-core #page-chat .chat-container-simplisctic .chat-input-container {
+    border-radius: 10px;
+    border: none;
+    left: 44%;
+    bottom: 3vh;
+    width: 50%;
+    background: transparent;
+    box-shadow: none;
+}
+
+.platform-core #page-chat .chat-container-simplisctic .chat-input-container textarea {
+    width: 85%;
+    border-radius: 7px;
+    padding: 1.5rem;
+    background: #ececec;
+}
+
+.platform-core #page-chat .chat-container-simplisctic .chat-input-container button {
+    border-radius: 7px;
+    width: 53px;
+    height: 50px;
+    box-shadow: 0px 2px 3px -1px #e0e0e0;
+    background: #e0e0e0;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+.platform-core #page-chat .chat-container-simplisctic .chat-input-container button:focus {
+    transform: scale(0.9);
+    transition: transform 0.2s ease-in;
+}
+
+.platform-core #page-chat .chat-wrapper-simplisctic .support-msg-simplisctic,
+.platform-core #page-chat .chat-wrapper-simplisctic .user-msg-simplisctic {
+    width: 55%;
+    margin-bottom: 1rem;
+    margin-top: 2%;
+}
+
+.platform-core #page-chat .chat-container-simplisctic .chat-input-container button svg {
+    fill: #28313B;
+    width: 2rem;
+    height: 2rem;
+}
+
+.platform-core #page-chat .chat-wrapper-simplisctic .support-msg-simplisctic .msg-content-container {
+    background: #ececec;
+    margin-left: 13%;
+}
+
+.platform-core #page-chat .chat-wrapper-simplisctic .support-msg-simplisctic .msg-content-container::after {
+    border-color: #ececec #ececec transparent transparent;
+}
+
+.platform-core #page-chat .chat-wrapper-simplisctic .support-msg-simplisctic .msg-addons img {
+    width: 40px;
+    height: 40px;
+}
+
+.chat-wrapper-simplisctic {
+  height: 100px;
+}
+
+/* Animation */
+
+@keyframes fadeInUp {
+    from {
+        transform: translate3d(0, 40px, 0)
+    }
+    to {
+        transform: translate3d(0, 0, 0);
+        opacity: 1
+    }
+}
+
+@-webkit-keyframes fadeInUp {
+    from {
+        transform: translate3d(0, 40px, 0)
+    }
+    to {
+        transform: translate3d(0, 0, 0);
+        opacity: 1
+    }
+}
+
+.animated {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-fill-mode: both
+}
+
+.animatedFadeInUp {
+    opacity: 0
+}
+
+.fadeInUp {
+    opacity: 0;
+    animation-name: fadeInUp;
+    -webkit-animation-name: fadeInUp;
+}
