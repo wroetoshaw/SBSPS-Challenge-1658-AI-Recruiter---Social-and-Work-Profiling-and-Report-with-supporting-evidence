@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const applicantion_response_url = `http://0.0.0.0:4003/dash`;
+const applicantion_response_url = `http://173.193.106.20:32327/dash`;
 
 const GenerateDashbaord = ({ match }) => {
 	console.log('GenerateDashbaord is clicked');

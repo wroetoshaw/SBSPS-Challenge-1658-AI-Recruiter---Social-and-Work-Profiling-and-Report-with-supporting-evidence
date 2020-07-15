@@ -6,7 +6,7 @@ import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 import RangeSlider from 'react-bootstrap-range-slider';
 import Loader from 'react-loader-spinner';
 
-const get_jobs_url = `http://0.0.0.0:4003/jobs`;
+const get_jobs_url = `http://173.193.106.20:32327/jobs`;
 
 const Home = () => {
 	const [ modalShow, setModalShow ] = useState(false);
@@ -72,7 +72,7 @@ const Home = () => {
 			body: JSON.stringify(data)
 		};
 
-		const response = await fetch(`http://0.0.0.0:4003/createform`, options);
+		const response = await fetch(`http://173.193.106.20:32327/createform`, options);
 		const result = await response.json();
 		console.log(`result ${result}`);
 		console.log('submit called');
@@ -145,7 +145,7 @@ const Home = () => {
 							color="black"
 							height={100}
 							width={100}
-							timeout={10000} //3 secs
+							timeout={20000} //20 secs
 						/>
 					</div>
 				) : (

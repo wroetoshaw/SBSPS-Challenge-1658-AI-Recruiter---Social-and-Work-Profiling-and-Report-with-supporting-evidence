@@ -5,8 +5,8 @@ import './ListResponses.css';
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 import Loader from 'react-loader-spinner';
 
-const job_response_url = `http://0.0.0.0:4003/jobs`;
-const dash_url = `http://0.0.0.0:4003/dash`;
+const job_response_url = `http://173.193.106.20:32327/jobs`;
+const dash_url = `http://173.193.106.20:32327/dash`;
 
 const ListResponse = ({ match }) => {
 	console.log('listresponse is clicked');
@@ -52,7 +52,7 @@ const ListResponse = ({ match }) => {
 						color="black"
 						height={100}
 						width={100}
-						timeout={3000} //3 secs
+						timeout={20000} //20 secs
 					/>
 				</div>
 			) : (
@@ -104,12 +104,12 @@ const DataList = ({ jobids }) => {
 export default ListResponse;
 
 /* <h6>{item.jobid} </h6> */
-/* <Link to={`http://0.0.0.0:4003/dash/${item.jobid}`}>
+/* <Link to={`http://173.193.106.20:32327/dash/${item.jobid}`}>
 					<Button variant="primary" type="submit" onClick={}>
 						View Output
 					</Button>
 				</Link> */
-/* <a href={`http://0.0.0.0:4003/dash/${item.jobid}`} target="_blank">
+/* <a href={`http://173.193.106.20:32327/dash/${item.jobid}`} target="_blank">
 					<Button variant="primary" type="submit">
 						View Output
 					</Button>
