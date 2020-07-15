@@ -6,7 +6,7 @@ Please go through the [Demo Video](https://youtu.be/rHH9eQrengU)
 
 ## Team Name - `Seizure`
 Members:
-* Anil Raj Thota
-* Nikhil JSK
-* Prasanth Gelli
-* Raja Rahul Maddula
+* [Anil Raj Thota](https://github.com/AnilRaj27)
+* [Nikhil JSK](https://github.com/nikhiljsk)
+* [Prasanth Gelli](https://github.com/prasanthgelli)
+* [Raja Rahul Maddula](https://github.com/rajarahul12)
