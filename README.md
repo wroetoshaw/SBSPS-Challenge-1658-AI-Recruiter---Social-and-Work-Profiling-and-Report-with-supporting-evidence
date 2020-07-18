@@ -4,6 +4,8 @@ Please go through the [Demo Video](https://youtu.be/rHH9eQrengU)
 
 > Note: Resume used in the Demo is [`Resume_Nikhil_JSK.docx`](https://github.com/SmartPracticeschool/SBSPS-Challenge-1658-AI-Recruiter---Social-and-Work-Profiling-and-Report-with-supporting-evidence/blob/master/Integration/Resume_Nikhil_JSK.docx). Please go through before watching the Demo Video. Thanks!
 
+> Please go through the [`Docs`](https://github.com/SmartPracticeschool/SBSPS-Challenge-1658-AI-Recruiter---Social-and-Work-Profiling-and-Report-with-supporting-evidence/blob/master/Docs) and ZOHO Writer (submitted in smartinternz workspace) for detailed explanation. 
+
 ## Deployed User Interface & Server
 * [Admin React Web App](http://159.122.187.28:30195/home)
 * [Flask Server](http://173.193.106.20:32327)
