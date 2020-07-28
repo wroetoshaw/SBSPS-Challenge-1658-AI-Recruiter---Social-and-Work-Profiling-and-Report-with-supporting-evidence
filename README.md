@@ -10,6 +10,10 @@ Please go through the [Demo Video](https://youtu.be/rHH9eQrengU)
 * [Admin React Web App](http://159.122.183.98:32300/home)
 * [Flask Server](http://184.172.233.206:32075)
 
+## Process Flow - Flowchart
+![Process Flow](https://i.ibb.co/QKt07Xm/flow-2.png)
+
+
 ## Team Name - `Seizure`
 Members:
 * [Anil Raj Thota](https://github.com/AnilRaj27)
