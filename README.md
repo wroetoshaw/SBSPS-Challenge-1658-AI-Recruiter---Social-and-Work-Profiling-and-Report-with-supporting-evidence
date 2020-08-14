@@ -13,6 +13,13 @@ Please go through the [Demo Video](https://youtu.be/rHH9eQrengU)
 ## Process Flow - Flowchart
 ![Process Flow](https://i.ibb.co/QKt07Xm/flow-2.png)
 
+## Backend Modules
+![Backend Modules](https://i.ibb.co/SVJzF43/Screenshot-2020-08-14-at-2-47-39-PM.png)
+
+## Top Features
+![Top Features](https://i.ibb.co/pdvSCj4/Screenshot-2020-08-14-at-2-48-19-PM.png)
+
+
 
 ## Team Name - `Seizure`
 Members:
