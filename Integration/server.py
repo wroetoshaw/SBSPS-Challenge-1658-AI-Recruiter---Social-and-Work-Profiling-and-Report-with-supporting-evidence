@@ -256,7 +256,7 @@ def call_backend_analyze_multiple(data):
     # with open(file_path, 'wb') as file:
     with open(file_path, 'wb+') as file:
         file.write(b64decode(to_write_resume.encode('utf-8')))
-    main(data['applicationId'], file_path, 'nikhiljsk', 'Smarty*777', data['githubUserName'], 
+    main(data['applicationId'], file_path, 'nikhiljsk', '', data['githubUserName'], 
                 app, __name__, cos, bucket_name, data, data['twitterUserName'])
     return "Called backend"
 
